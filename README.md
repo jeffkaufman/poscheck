@@ -9,7 +9,7 @@ can make them mandatory with `poscheck`:
       ...
 
 Then calls like `always_keyword(data=x, model=y)` will succeed, but calls like
-`always_keyword(x, y)` will get a PositionalArgumentsError:
+`always_keyword(x, y)` will get a `PositionalArgumentsError`:
 
     Traceback (most recent call last):
       File "tests.py", line 55, in <module>

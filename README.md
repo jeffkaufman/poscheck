@@ -19,3 +19,11 @@ Then calls like `always_keyword(data=x, model=y)` will succeed, but calls like
       File "poscheck/poscheck.py", line 10, in checked_f
         raise PositionalArgumentsError(f)
     poscheck.PositionalArgumentsError: checked takes only keyword arguments
+
+If you only want to check some of the arguments, you can exclude the first `n`.  For
+example, if you have `splitlines` and you want to make sure any arguments after the first
+are keyword arguments, you could write:
+
+    @poscheck_except(1):
+    def splitlines(s, keepends=False):
+      ...

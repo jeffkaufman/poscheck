@@ -7,6 +7,10 @@ def unchecked(a, b):
 def checked(a, b):
     pass
 
+@poscheck
+def one():
+    return 1
+
 @poscheck_except(1)
 def partly_checked(a, b):
     pass
@@ -17,6 +21,8 @@ def start():
   unchecked(1, 2)
   partly_checked(a=1, b=2)
   partly_checked(1, b=2)
+
+  assert(one()==1)
 
   caught_error = False
   try:
@@ -43,7 +49,6 @@ def start():
   try:
       partly_checked(1, 2)
   except PositionalArgumentsError:
-      raise
       caught_error = True
   assert caught_error
 

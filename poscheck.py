@@ -17,6 +17,6 @@ def poscheck_except(n):
         def checked_f(*args, **kwargs):
             if len(args) > n:
                 raise PositionalArgumentsError(f, n)
-            f(*args, **kwargs)
+            return f(*args, **kwargs)
         return checked_f
     return helper
